@@ -1,0 +1,46 @@
+import { Inter, JetBrains_Mono } from "next/font/google";
+import "./globals.css";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+});
+
+export const metadata = {
+  title: "Bin'Go | Smart Waste Management",
+  description:
+    "Bin'Go is a dual-platform municipal waste management and illegal dumping mitigation platform. Track waste collection, report illegal dumping, and stay informed with real-time schedules.",
+  keywords: [
+    "waste management",
+    "Metro Cebu",
+    "illegal dumping",
+    "sanitation",
+    "civic tech",
+    "community",
+  ],
+  openGraph: {
+    title: "Bin'Go - Smart Community Waste & Sanitation",
+    description:
+      "Track waste collection, report illegal dumping, and keep Metro Cebu clean with Bin'Go.",
+    type: "website",
+    locale: "en_PH",
+  },
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html
+      lang="en"
+      className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
+    >
+      <body className="min-h-[100dvh] bg-background text-foreground font-sans">
+        {children}
+      </body>
+    </html>
+  );
+}

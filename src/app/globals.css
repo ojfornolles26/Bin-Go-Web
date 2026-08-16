@@ -24,14 +24,14 @@
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
 }
 
 /* Utility classes */
@@ -90,9 +90,9 @@ html {
   background: transparent;
 }
 
-/* Map Leaflet Pill Zoom Control */
+/* Map Leaflet Zoom Control */
 .leaflet-bar {
-  border-radius: 9999px !important;
+  border-radius: 0.75rem !important;
   overflow: hidden;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
   border: 1px solid var(--border) !important;
@@ -125,4 +125,26 @@ html {
 
 .leaflet-tooltip.location-tooltip::before {
   display: none !important;
+}
+
+@keyframes slideUpFromBottom {
+  0% { transform: translateY(40vh); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.animate-slide-up-phone {
+  animation: slideUpFromBottom 0.8s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@keyframes slideDownFromTop {
+  0% { transform: translateY(-40vh); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.animate-slide-down-phone {
+  animation: slideDownFromTop 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
